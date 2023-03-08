@@ -16,6 +16,10 @@ public class Nauczyciel extends Osoba1{
         return przedmiot;
     }
 
+    public void test(){
+        System.out.println("test");
+    }
+
     @Override
     public String toString() {
         return "Nauczyciel{" +
