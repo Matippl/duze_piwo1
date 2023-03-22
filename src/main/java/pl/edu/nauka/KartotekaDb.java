@@ -14,6 +14,11 @@ public class KartotekaDb implements Kartoteka{
     }
 
     @Override
+    public Uczen wyszukajUcznia(Long id) {
+        return null;
+    }
+
+    @Override
     public void zmienDane(Uczen uczen) {
 
     }

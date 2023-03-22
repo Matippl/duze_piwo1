@@ -27,8 +27,7 @@ public class Sekretariat {
                         kartoteka.dodajUcznia(uczen);
                         break;
                     case 2:
-                        //FIXME
-                        // kartoteka.wyszukajUcznia();
+                        wyszukajUcznia();
                         break;
                     case 3:
                         System.out.println("usune ucznia");
@@ -85,6 +84,19 @@ public class Sekretariat {
             throw new IllegalArgumentException(komunikat);
         }
     }
+    private static void wyszukajUcznia(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Podaj id");
+        var id = scanner.nextLong();
+        var uczen = kartoteka.wyszukajUcznia(id);
+        if(uczen!=null){
+            System.out.println(uczen);
+        }
+        else{
+            System.out.println("Nie znaleziono ucznia!!!");
+        }
+    }
+
 }
 
 

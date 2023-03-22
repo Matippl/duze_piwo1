@@ -7,6 +7,10 @@ public interface Kartoteka {
 
     Uczen wyszukajUcznia(String imie, String nazwisko);
 
+    Uczen wyszukajUcznia(Long id);
+
+
+
     void  zmienDane(Uczen uczen);
 
     void usunUcznia(String imie, String nazwisko);

@@ -21,6 +21,8 @@ public class KartotekaLista implements Kartoteka {
         }
         return null;
     }
+
+    @Override
     public Uczen wyszukajUcznia(Long id) {
         for (Uczen uczen : uczniowie) {
             if (uczen.getId()==id) {
@@ -29,6 +31,8 @@ public class KartotekaLista implements Kartoteka {
         }
         return null;
     }
+
+
 
 
 
