@@ -5,7 +5,7 @@ import java.time.format.DateTimeParseException;
 import java.util.Scanner;
 
 public class Sekretariat {
-   static Kartoteka kartoteka = new KartotekaLista();
+   static Kartoteka kartoteka = new KartotekaDb();
 
 
 
@@ -18,7 +18,8 @@ public class Sekretariat {
             System.out.println("3 - Usun ucznia");
             System.out.println("4 - Zmien dane");
             System.out.println("5 -Wyswietl uczniow");
-            System.out.println("6- Koniec");
+            System.out.println("6- Wyszukaj ucznia po imieniu i nazwisku");
+            System.out.println("7 -Koniec");
             int opcja = scanner.nextInt();
             try {
                 switch (opcja) {
@@ -40,8 +41,11 @@ public class Sekretariat {
                       System.out.println();
                       break;
                     case 6:
-                      System.out.println("Koniec");
-                      return;
+                      System.out.println("Wyszukiwanie po imieniu i nazwisku");
+                      break;
+                    case 7:
+                        System.out.println("Koniec");
+                        return;
                     default:
                         System.out.println("Nieprawidłowa opcja");
                         return;
@@ -69,14 +73,19 @@ public class Sekretariat {
         System.out.println("Podaj date urodenia");
         var dataUrodzeia = scanner.nextLine();
         walidujDane(dataUrodzeia, "Nieprwaidlowe dataurodzenia");
-
-
+        System.out.println("Podaj pesel");
+        var pesel = scanner.nextLine();
+        return new Uczen(imie, nazwisko,pesel, LocalDate.parse(dataUrodzeia));
+        /*
+        //FIXME do przeniesienia do implementacji kartoteka lista
         try {
             var id= GeneratorId.generuj(kartoteka.getUczniowie());
             return new Uczen(id,imie, nazwisko, LocalDate.parse(dataUrodzeia));
         } catch (DateTimeParseException e) {
             throw new IllegalArgumentException("Nieprawidlowa data", e);
         }
+
+         */
     }
 
     private static void walidujDane(String dane, String komunikat) {
@@ -84,6 +93,7 @@ public class Sekretariat {
             throw new IllegalArgumentException(komunikat);
         }
     }
+
     private static void wyszukajUcznia(){
         Scanner scanner = new Scanner(System.in);
         System.out.println("Podaj id");
@@ -97,6 +107,21 @@ public class Sekretariat {
         }
     }
 
+
+    private static void wyszukajUcznia(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Podaj imie");
+        var imie = scanner.nextLine();
+        System.out.println("Podaj Nazwisko");
+        var nazwisko = scanner.nextLine();
+        var uczen = kartoteka.wyszukajUcznia(imie,nazwisko);
+        if(uczen!=null){
+            System.out.println(uczen);
+        }
+        else{
+            System.out.println("Nie znaleziono ucznia!!!");
+        }
+    }
 }
 
 

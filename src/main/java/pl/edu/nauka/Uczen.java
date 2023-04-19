@@ -15,7 +15,11 @@ public class Uczen extends Osoba1 {
         this.pesel = pesel;
         this.dataUrodzeia = dataUrodzeia;
     }
-
+    public Uczen( String imie, String nazwisko, String pesel, LocalDate dataUrodzeia) {
+        super(null, imie, nazwisko);
+        this.pesel = pesel;
+        this.dataUrodzeia = dataUrodzeia;
+    }
     public Uczen(Long id, String imie, String nazwisko, LocalDate dataUrodzeia) {
         super(id, imie, nazwisko);
         this.dataUrodzeia = dataUrodzeia;

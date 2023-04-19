@@ -1,2 +1,33 @@
-<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="/Users/grzegorznocon/IdeaProjects/duze piwo/Sekretariat.db" readonly="0" foreign_keys="" case_sensitive_like="" temp_store="" wal_autocheckpoint="" synchronous=""/><attached/><window><main_tabs open="structure browser pragmas query" current="1"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="869"/><column_width id="4" width="0"/></tab_structure><tab_browse><current_table name="0,0:"/><default_encoding codec=""/><browse_table_settings/></tab_browse><tab_sql><sql name="SQL 1">
-INSERT INTO Uczen(imie,nazwisko) VALUES('Jakub','Nowak')</sql><current_tab id="0"/></tab_sql></sqlb_project>
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="/Users/grzegorznocon/IdeaProjects/duze piwo/Sekretariat.db" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser pragmas query" current="3"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="1380"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><current_table name="4,5:mainUczen"/><default_encoding codec=""/><browse_table_settings><table schema="main" name="Uczen" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="18"/><column index="2" value="42"/><column index="3" value="56"/><column index="4" value="83"/><column index="5" value="39"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table></browse_table_settings></tab_browse><tab_sql><sql name="SQL 1">SELECT  * FROM Uczen WHERE pesel is NULL 
+SELECT * FROM Adres 
+
+
+SELECT u.imie,u.nazwisko,a.ulica,a.nr_domu,a.kod_pocztowy,a.miasto,a.kraj
+from Uczen u
+ LEFT JOIN Adres a on a.id_uczen = u.id
+
+
+
+
+
+INSERT INTO Adres(ulica,nr_domu,nr_mieszkania,kod_pocztowy,miasto,kraj,typ,id_uczen) VALUES('Pomorska', '1','10A','80-456','Gdansk','Polska','Stały', 3)
+INSERT INTO Adres(ulica,nr_domu,nr_mieszkania,kod_pocztowy,miasto,kraj,typ,id_uczen) VALUES('Piastowska', '1','14A','80-812','Warszawa','Polska','Stały', 3)
+
+
+DELETE FROM Uczen WHERE id=2
+
+UPDATE Uczen set imie='Jan' ,nazwisko='Traba' WHERE id = 3
+
+
+CREATE TABLE &quot;Adres&quot; (
+	&quot;id&quot;	INTEGER,
+	&quot;ulica&quot;	TEXT NOT NULL,
+	&quot;nr_domu&quot;	TEXT NOT NULL,
+	&quot;nr_mieszkania&quot;	INTEGER,
+	&quot;kod_pocztowy&quot;	TEXT,
+	&quot;miasto&quot;	TEXT Not NULL,
+	&quot;kraj&quot;	TEXT Not NULL,
+	&quot;typ&quot;	TEXT Not NULL,
+	&quot;id_uczen&quot; INTEGER Not NULL,
+	PRIMARY KEY(&quot;id&quot; AUTOINCREMENT)
+)</sql><current_tab id="0"/></tab_sql></sqlb_project>
