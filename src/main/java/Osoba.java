@@ -1,6 +1,6 @@
-import lombok.Value;
 
-@Value
+
+
 public class Osoba {
 
     String imie;

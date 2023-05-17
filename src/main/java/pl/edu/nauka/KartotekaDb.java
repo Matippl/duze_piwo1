@@ -1,5 +1,7 @@
 package pl.edu.nauka;
 
+import pl.edu.util.NazwaTabeli;
+
 import java.sql.Date;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -11,8 +13,9 @@ public class KartotekaDb implements Kartoteka {
     @Override
     public void dodajUcznia(Uczen uczen) {
         try {
+            var table = NazwaTabeli.nazwa(uczen);
             var ps = ConnectionDb.getConnection().prepareStatement(
-                    "INSERT INTO Uczen(imie,nazwisko,pesel,dataUrodzenia) values(?,?,?,?)"
+                    "INSERT INTO "+table+"(imie,nazwisko,pesel,dataUrodzenia) values(?,?,?,?)"
             );
             ps.setString(1, uczen.getImie());
             ps.setString(2, uczen.getNazwisko());

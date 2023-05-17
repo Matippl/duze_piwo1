@@ -1,9 +1,16 @@
 package pl.edu.nauka;
 
+import lombok.Getter;
+import lombok.ToString;
+import pl.edu.util.Table;
+
+import javax.annotation.processing.SupportedAnnotationTypes;
 import javax.swing.*;
 import java.time.LocalDate;
 import java.time.format.SignStyle;
-
+@ToString
+@Getter
+@Table(name = "UCZEN")
 public class Uczen extends Osoba1 {
 
     private String pesel;
@@ -49,19 +56,11 @@ public class Uczen extends Osoba1 {
  */
 
 
-    public String toString(){
-        return "id ="  + getId() + ",imie:" +  getImie() + ",nazwisko:" + getNazwisko() + ", urodzilem sie:" + dataUrodzeia;
-    }
 
 
 
-    public String getPesel() {
-        return pesel;
-    }
 
-    public LocalDate getDataUrodzeia() {
-        return dataUrodzeia;
-    }
+
 
     @Override
     protected LocalDate peselNaDate(String pesel) {

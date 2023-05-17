@@ -13,6 +13,8 @@ public class KartotekaLista implements Kartoteka {
 
     }
 
+
+
     public Uczen wyszukajUcznia(String imie, String nazwisko) {
         for (Uczen uczen : uczniowie) {
             if (uczen.getImie().equalsIgnoreCase(imie) && uczen.getNazwisko().equalsIgnoreCase(nazwisko)) {

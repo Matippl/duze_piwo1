@@ -1,9 +1,9 @@
 package pl.edu.util;
 
-import lombok.ToString;
+
 import pl.edu.service.Obiekt;
 
-@ToString
+
 public class Osoba implements Obiekt {
 
     String imie;

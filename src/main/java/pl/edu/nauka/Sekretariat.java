@@ -108,21 +108,10 @@ public class Sekretariat {
     }
 
 
-    private static void wyszukajUcznia(){
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Podaj imie");
-        var imie = scanner.nextLine();
-        System.out.println("Podaj Nazwisko");
-        var nazwisko = scanner.nextLine();
-        var uczen = kartoteka.wyszukajUcznia(imie,nazwisko);
-        if(uczen!=null){
-            System.out.println(uczen);
-        }
-        else{
-            System.out.println("Nie znaleziono ucznia!!!");
-        }
+
     }
-}
+
+
 
 
 
